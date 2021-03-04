@@ -49,7 +49,7 @@ const updateTicket = (req,res) => {
     })
 };
 
-const getAnalytics = async(req,res) => {
+const getAnalyticsByRevenue = async(req,res) => {
     let value = req.query;
     let dates = req.body;
     if(value.method === 'DB aggregation'){
@@ -73,10 +73,36 @@ const getAnalytics = async(req,res) => {
     }
 
 };
+
+const getAnalyticsByVisits = async(req,res) => {
+    let value = req.query;
+    let dates = req.body;
+    if(value.method === 'DB aggregation'){
+    let query = `select DATENAME(month,creation) month, sum(ticket/150) summaryVisits from tickets
+    where creation between '${dates.startDate}' and '${dates.endDate}'
+    group by DATENAME(month,creation)`;
+    await database.database.query(query)
+    .then(data => {
+        console.log(data);
+        res.json(data);
+    })
+    .catch(err => {
+        res.send(err);
+    });
+    }else if(value.method === 'js algorithms'){
+        let query = `select creation date, sum(ticket/150) summaryVisits from tickets
+        where creation between '${dates.startDate}' and '${dates.endDate}'
+        group by creation`
+        let data = await database.database.query(query);
+        res.json(data);
+    }
+
+};
 module.exports = {
     createTicket,
     getTicket,
     deleteTicket,
     updateTicket,
-    getAnalytics
+    getAnalyticsByRevenue,
+    getAnalyticsByVisits
 }
