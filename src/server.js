@@ -2,7 +2,7 @@ const express = require('express'),
 app = express(),
 cors = require('cors'),
 bodyParser = require('body-parser'),
-port = '8085';
+port = process.env.PORT || '8085';
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -28,6 +28,9 @@ app.use((req, res, next) => {
 });
 const routes = require('../src/routes/ticketRoutes.js');
 routes(app);
+app.get('/', (req,res) => {
+    res.send('Welcome to ticket backend');
+})
 app.listen(port, ()=>{
     console.log(`Node challenge port is running on ${port}`);
 });
