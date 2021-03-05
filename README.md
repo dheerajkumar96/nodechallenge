@@ -30,3 +30,13 @@ CREATE TABLE [dbo].[tickets](
 	[isDeleted] [bit] NULL
 ) ON [PRIMARY]
 GO
+
+
+List Of API's
+1./ticket/get
+2./ticket/create
+3./ticket/update
+4./ticket/delete
+5./ticket/getanalyticsbyvisits
+6./ticket/getanalyticsbyrevenue
+
