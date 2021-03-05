@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ticketid\":2\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"

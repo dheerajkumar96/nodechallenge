@@ -14,8 +14,7 @@ database.database.query(query).then(data => {
 
 
 const getTicket = async(req,res) => {
-    let value = req.body;
-    let query = `select * from tickets where ticketid = ${value.ticketid}`;
+    let query = `select * from tickets`;
     database.database.query(query, { type: database.database.QueryTypes.SELECT })
     .then(data => {
         res.status(200).json(data);
