@@ -11,13 +11,9 @@ describe('ticket backend test', () => {
     describe('get ticket method', function(){
         this.timeout(10000);
         it.only('should get ticket data when a valid ticketid is passed', async() => {
-            req = {
-                ticketid:2
-            };
             const res = await chai.request('http://localhost:8085')
             .get('/ticket/get')
             .set('Content-Type', 'application/json')
-            .send(req);
             assert.equal(res.status, 200);
         });
         });
