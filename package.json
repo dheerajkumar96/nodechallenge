@@ -1,0 +1,33 @@
+{
+  "name": "nodechallenge",
+  "version": "1.0.0",
+  "description": "node backend challenge",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "test": "./node_modules/.bin/mocha",
+    "unittest": "npm test ./src/test/ticket.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dheerajkumar96/nodechallenge.git"
+  },
+  "author": "Dheeraj Kumar B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dheerajkumar96/nodechallenge/issues"
+  },
+  "homepage": "https://github.com/dheerajkumar96/nodechallenge#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.4",
+    "express": "^4.17.1",
+    "mocha": "^8.3.0",
+    "sequelize": "^6.5.0",
+    "tedious": "^11.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.3.3"
+  }
+}
